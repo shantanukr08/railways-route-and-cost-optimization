@@ -1,0 +1,18 @@
+<div class="logo">
+  <img src="assets/img/rail.png" class="img-circle-dashboard  img-responsive" alt="Rounded Image">
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li
+      routerLinkActive="active" class="li-padding"
+      *ngFor="let menuItem of menuItems"
+    >
+      <a [routerLink]="[menuItem.path]" class="btn btn-link btn-warning">
+        <div class="row d-flex">
+        <i class="nc-icon icon-size {{ menuItem.icon }} col-lg-3 d-flex align-items-center justify-content-end"></i>
+        <p class="col-lg-9 text-size d-flex mb-0 align-items-center justify-content-end">{{ menuItem.title }}</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
