@@ -9,6 +9,7 @@ import { AdminLayoutRoutes } from "./admin-layout.routing";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DashboardComponent } from "../dashboard/dashboard.component";
+import { RouteComponent } from "../route/route.component";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
     NgbModule,
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    RouteComponent
   ]
 })
 export class AdminLayoutModule {}

@@ -1,0 +1,177 @@
+<div class="card">
+    <div class="card-title">
+        <h4 class="dashboard-title">Search by</h4>
+    </div>
+    <div class="checkbox-area d-flex row" *ngIf="loading">
+        <div class="form-check justify-content-center">
+            <div class="spinner-grow text-primary p-3" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox-area d-flex row" *ngIf="!loading">
+        <div class="form-check col-6">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [checked]="checkboxable"
+                    (change)="checkboxable = !checkboxable">
+                <span class="form-check-sign checkbox-text"> Route optimization</span>
+            </label>
+        </div>
+        <div class="form-check col-4">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [checked]="!checkboxable"
+                    (change)="checkboxable = !checkboxable">
+                <span class="form-check-sign checkbox-text"> Cost optimization</span>
+            </label>
+        </div>
+    </div>
+    <div class="card-block row" *ngIf="!loading">
+        <div class="col-5 search-item-1">
+            <div class="label">
+                <h3>Start Point</h3>
+            </div>
+            <div class="form-group mt-2">
+                <input type="text" class="form-control" placeholder="Start point" (keyup)="startPoint($event)">
+            </div>
+        </div>
+        <div class="col-5 search-item-2">
+            <div class="label ">
+                <h3>End Point</h3>
+            </div>
+            <div class="form-group mt-2">
+                <input type="text" class="form-control" placeholder="End point" (keyup)="endPoint($event)">
+            </div>
+        </div>
+    </div>
+    <div class="checkbox-area d-flex row" *ngIf="!loading">
+        <div class="form-check col-6">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [checked]="algorithm"
+                    (change)="algorithm = !algorithm">
+                <span class="form-check-sign data-text">Dijkstra Algorithm</span>
+            </label>
+        </div>
+        <div class="form-check col-4">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [checked]="!algorithm"
+                    (change)="algorithm = !algorithm">
+                <span class="form-check-sign data-text">Bellman ford algorithm</span>
+            </label>
+        </div>
+    </div>
+    <button type="button" *ngIf="!loading" class="btn btn-outline-danger btn-round search-button"
+        (click)="onSubmit()">Search
+        Route</button>
+</div>
+
+<div class="card" *ngIf="showData">
+    <div class="checkbox-area d-flex row" *ngIf="algorithmLoading">
+        <div class="form-check justify-content-center">
+            <div class="spinner-grow text-primary p-3" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="nav-tabs-navigation data-box" *ngIf="true">
+        <div class="nav-tabs-wrapper ps-5">
+            <ngb-tabset [justify]="'center'">
+                <ngb-tab title="Direct trains">
+                    <ng-template ngbTabContent>
+                        <div class="pb-4 checkbox-text">
+                            <span>Journey from {{source}} to {{destination}}</span>
+                        </div>
+                        <div class="top-line data-text">
+                            <span class="d-flex justify-content-start">
+                                Available trains :</span><br />
+                            <div *ngIf="directResultData.length">
+                                <div *ngFor="let train of directResultData" class="trains-line">
+                                    <div>
+                                        <span>Train number : {{train?.number}}</span><br>
+                                        <span>Train name : {{train?.name}}</span><br>
+                                        <span>Source : {{train?.from_station_name}}</span><br>
+                                        <span>Destination : {{train?.to_station_name}}</span><br>
+                                        <span>Arrival time : {{train?.arrival}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>Departure time : {{train?.departure}}</span><br>
+                                    </div>
+                                </div><br />
+                            </div>
+                            <div *ngIf="!directResultData.length">
+                                <span>No direct trains available</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Indirect trains">
+                    <ng-template ngbTabContent>
+                        <div class="pb-4 checkbox-text">
+                            <span>Journey from {{source}} to {{destination}}</span>
+                        </div>
+                        <div class="top-line data-text">
+                            <div *ngIf="resultData.length">
+                                <div *ngFor="let trainsAvailable of resultData" class="bottom-line">
+                                    <span class="d-flex justify-content-start">
+                                        From = {{trainsAvailable?.from}}, To = {{trainsAvailable?.to}} :</span><br />
+                                    <div *ngFor="let train of trainsAvailable?.trains" class="trains-line">
+                                        <div>
+                                            <span>Train number : {{train?.number}}</span><br>
+                                            <span>Train name : {{train?.name}}</span><br>
+                                            <span>Source : {{train?.from_station_name}}</span><br>
+                                            <span>Destination : {{train?.to_station_name}}</span><br>
+                                            <span>Arrival time : {{train?.arrival}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span>Departure time : {{train?.departure}}</span><br>
+                                        </div>
+                                    </div><br />
+                                </div>
+                            </div>
+                            <div *ngIf="!resultData.length"> 
+                                <span>No indirect trains available</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</div>

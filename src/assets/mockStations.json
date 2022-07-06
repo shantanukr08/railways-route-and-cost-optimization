@@ -1,0 +1,157 @@
+{
+    "stationData": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    86.20056000000001,
+                    22.768954
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "JHARKHAND",
+                "code": "TATA",
+                "name": "TATANAGAR JN",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.33352,
+                    23.348811
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "JHARKHAND",
+                "code": "RNC",
+                "name": "RANCHI",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    88.385179,
+                    22.601174999999998
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "WEST BENGAL",
+                "code": "KOAA",
+                "name": "KOLKATA CHITPUR",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.136824,
+                    25.60256
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "BIHAR",
+                "code": "PNBE",
+                "name": "PATNA JN",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.84259499999999,
+                    20.265388
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "ORISSA",
+                "code": "BBS",
+                "name": "BHUBANESWAR",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.839992,
+                    19.811459000000003
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "ORISSA",
+                "code": "PURI",
+                "name": "PURI",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.22000399999999,
+                    28.642314
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "DELHI",
+                "code": "NDLS",
+                "name": "NEW DELHI",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.56808299999999,
+                    12.977595
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "KARNATAKA",
+                "code": "SBC",
+                "name": "BANGALORE CITY JN",
+                "zone": null,
+                "address": null
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    86.428956,
+                    23.790966
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "state": "JHARKHAND",
+                "code": "DHN",
+                "name": "DHANBAD JN",
+                "zone": null,
+                "address": null
+            }
+        }
+    ]
+}

@@ -12,6 +12,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ExamplesModule } from './examples/examples.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CalculateService } from './shared/services/calculate.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ExamplesModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [CalculateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
